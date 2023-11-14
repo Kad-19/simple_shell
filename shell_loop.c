@@ -8,7 +8,7 @@ void shell_loop(void)
 	while(true)
 	{
 		show_prompt();
-		getline(&command, &command_size, stdin);
+		read_line(void);
 		if (command == NULL)
 			continue;
 		execute(command);

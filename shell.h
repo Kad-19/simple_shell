@@ -9,6 +9,10 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
+
+/********CONSTANTS*******/
+#define BUFFER_SIZE 1024
 
 /******PROTOTYPES******/
 
@@ -17,4 +21,5 @@ void execute(const char *command);
 void _print(char *format);
 void _read(char *command, size_t size);
 void shell_loop(void);
+char read_line(void);
 #endif
