@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char read_line(void)
+char *read_line(void)
 {
     static char buffer[BUFFER_SIZE];
     static int position = 0;

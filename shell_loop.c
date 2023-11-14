@@ -9,8 +9,18 @@ void shell_loop(void)
 	while(true)
 	{
 		command = NULL;
-		command_size = 0;
 		show_prompt();
+		getline(&command, &command_size, stdin);
+		if (feof(stdin))
+                {
+                        printf("\n");
+                        break;
+                }
+                if (!strcmp(command, empty))
+			continue;
+        
+                if (command == NULL)
+			continue;
 
 		execute(command);
 	}
