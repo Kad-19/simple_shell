@@ -17,4 +17,5 @@ void execute(const char *command);
 void _print(char *format);
 void _read(char *command, size_t size);
 void shell_loop(void);
+void handle_interruption(int sigint);
 #endif
