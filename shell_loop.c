@@ -11,14 +11,7 @@ void shell_loop(void)
 		command = NULL;
 		command_size = 0;
 		show_prompt();
-		getline(&command, &command_size, stdin);
-		if (feof(stdin))
-		{
-			printf("\n");
-			break;
-		}
-		if (!strcmp(command, empty))
-			continue;
+
 		execute(command);
 	}
 }
