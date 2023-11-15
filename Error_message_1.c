@@ -64,4 +64,3 @@ char *env_error(shell_dat *dat)
 	free(str);
 	return (error);
 }
-

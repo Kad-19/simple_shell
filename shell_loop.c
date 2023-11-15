@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * shell_loop - Loop of shell
- * 
+ *
  * @dat: data struncture
  */
 void shell_loop(shell_dat *dat)

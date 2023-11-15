@@ -3,7 +3,7 @@
 /**
  * add_node_end_sept - adds a new node at the end
  * of a sep
- * 
+ *
  * @start: start of the linked list.
  * @sepr: separator found (; | &).
  * Return: address of the start.
@@ -57,10 +57,10 @@ void sep_free(sep **start)
 /**
  * add_node_end_ln - adds a command at the end
  * of a line_li
- * 
+ *
  * @start: start of the linked list.
  * @line: command line.
- * 
+ *
  * Return: start
  */
 line_li *add_node_end_ln(line_li **start, char *line)
@@ -91,7 +91,7 @@ line_li *add_node_end_ln(line_li **start, char *line)
 
 /**
  * line_free - frees a line_li
- * 
+ *
  * @start: start of the linked list
  */
 void line_free(line_li **start)
@@ -109,4 +109,3 @@ void line_free(line_li **start)
 		*start = NULL;
 	}
 }
-

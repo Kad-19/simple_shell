@@ -3,7 +3,7 @@
 /**
  * read_cmd - reads the input command
  * @eof_j: return value of getline function
- * 
+ *
  * Return: cmd string
  */
 char *read_cmd(int *eof_j)

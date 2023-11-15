@@ -3,7 +3,7 @@
 int main(int ac, char **av)
 {
 	shell_dat data;
-	(void) ac;
+	(void)ac;
 
 	signal(SIGINT, handle_interruption);
 	setdat(&data, av);

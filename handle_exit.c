@@ -3,13 +3,13 @@
 /**
  * _exit_shell - exits the shell
  * @dat: data structure
- * 
+ *
  * Return: 0 on success.
  */
 int _exit_shell(shell_dat *dat)
 {
 	int num, len, bignum;
-    unsigned int _st;
+	unsigned int _st;
 
 	if (dat->args[1] != NULL)
 	{

@@ -23,10 +23,9 @@
 /********Structures*****/
 extern char **environ;
 
-
 /**
  * struct shell_data - struct with shell atributes
- * @command: command line 
+ * @command: command line
  * @pid: process ID of the shell
  * @av: argument vector
  * @counter: number of lines
@@ -41,9 +40,9 @@ typedef struct shell_data
 	char **av;
 	int counter;
 	int status;
- 	char **envir;
+	char **envir;
 	char **args;
-	
+
 } shell_dat;
 
 /**
@@ -79,7 +78,6 @@ typedef struct lines
 	char *line;
 	struct lines *next;
 } line_li;
-
 
 /******PROTOTYPES******/
 void show_prompt(void);

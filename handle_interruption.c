@@ -2,6 +2,6 @@
 
 void handle_interruption(int signum)
 {
-	(void) signum;
+	(void)signum;
 	_print("\nshell$ ");
 }

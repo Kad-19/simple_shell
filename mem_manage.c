@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * _reallocdp - reallocates a memory space for a double pointer.
- * 
+ *
  * @ptr: double pointer
  * @size_o: size of the allocated space of ptr.
  * @size_new: new size of the new memory block.

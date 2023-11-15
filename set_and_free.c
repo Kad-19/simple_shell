@@ -19,11 +19,11 @@ void setdat(shell_dat *dat, char **av)
 		i++;
 
 	dat->envir = malloc(sizeof(char *) * (i + 1));
-    i = 0;
+	i = 0;
 	while (environ[i])
 	{
 		dat->envir[i] = strdup(environ[i]);
-        i++;
+		i++;
 	}
 
 	dat->envir[i] = NULL;
@@ -41,7 +41,7 @@ void freedat(shell_dat *dat)
 	while (dat->envir[i])
 	{
 		free(dat->envir[i]);
-        i++;
+		i++;
 	}
 
 	free(dat->envir);

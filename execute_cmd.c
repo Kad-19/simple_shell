@@ -4,7 +4,7 @@
  * in_cdir - checks ":" if found in the cd
  * @p: pointer char (path)
  * @i: pointer of index.
- * 
+ *
  * Return: 1 if the p is in the cd, 0 otherwise.
  */
 int in_cdir(char *p, int *i)
@@ -25,7 +25,7 @@ int in_cdir(char *p, int *i)
  * _which - searches for a command
  * @inp: command name
  * @_environ: environment variable
- * 
+ *
  * Return: location of the command.
  */
 char *_which(char *inp, char **_environ)
@@ -74,7 +74,7 @@ char *_which(char *inp, char **_environ)
 /**
  * is_exec - checks if it is an executable
  * @dat: data structure
- * 
+ *
  * Return: 0 if not, any other number if it does
  */
 int is_exec(shell_dat *dat)
@@ -104,7 +104,7 @@ int is_exec(shell_dat *dat)
 		}
 		else
 			break;
-        i++;
+		i++;
 	}
 	if (i == 0)
 		return (0);
@@ -121,7 +121,7 @@ int is_exec(shell_dat *dat)
  * check_err_inp - checks wether user has permissions to access
  * @dir: destination directory
  * @dat: data structure
- * 
+ *
  * Return: 0 if no error
  */
 int check_err_inp(char *dir, shell_dat *dat)
@@ -157,7 +157,7 @@ int check_err_inp(char *dir, shell_dat *dat)
 /**
  * inp_exec - executes command
  * @dat: data structure
- * 
+ *
  * Return: 1 on success.
  */
 int inp_exec(shell_dat *dat)
@@ -165,7 +165,7 @@ int inp_exec(shell_dat *dat)
 	char *dir;
 	int state, exec;
 	pid_t pd, wpd;
-	(void) wpd;
+	(void)wpd;
 
 	exec = is_exec(dat);
 	if (exec == -1)
@@ -193,7 +193,8 @@ int inp_exec(shell_dat *dat)
 	}
 	else
 	{
-		do {
+		do
+		{
 			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}

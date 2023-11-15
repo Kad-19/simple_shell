@@ -3,7 +3,7 @@
 /**
  * error_get_cd - error message of cd in get_cd
  * @dat: data structure
- * 
+ *
  * Return: error message
  */
 char *error_get_cd(shell_dat *dat)
@@ -46,7 +46,7 @@ char *error_get_cd(shell_dat *dat)
  * @msg: printed message
  * @error: output message
  * @str: counter lines
- * 
+ *
  * Return: error message
  */
 char *cd_error(shell_dat *dat, char *msg, char *error, char *str)

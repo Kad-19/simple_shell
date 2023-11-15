@@ -4,7 +4,7 @@
  * swapch - swaps &, |
  * @command: command string
  * @bl: type of swap
- * 
+ *
  * Return: string
  */
 char *swapch(char *command, int bl)
@@ -72,16 +72,16 @@ void addnew(sep **start_s, line_li **start_l, char *command)
 	}
 
 	line = strtok(command, ";|&");
-	do {
+	do
+	{
 		line = swapch(line, 1);
 		add_node_end_ln(start_l, line);
 		line = strtok(NULL, ";|&");
 	} while (line != NULL);
-
 }
 
 /**
- * go_to_next - go to the next command line 
+ * go_to_next - go to the next command line
  *
  * @list_s: separator list
  * @list_l: command line list

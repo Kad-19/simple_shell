@@ -18,7 +18,7 @@ char *exit_error(shell_dat *dat)
 	if (error == 0)
 	{
 		free(str);
-        free(error);
+		free(error);
 		return (NULL);
 	}
 	strcpy(error, dat->av[0]);
@@ -46,7 +46,7 @@ char *cmd_not_found_error(shell_dat *dat)
 	char *error;
 
 	str = conv_itoa(dat->counter);
-	size = strlen(str) + strlen(dat->av[0]) ;
+	size = strlen(str) + strlen(dat->av[0]);
 	size += strlen(dat->args[0]) + 16;
 	error = malloc(sizeof(char) * (size + 1));
 	if (error == 0)
