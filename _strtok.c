@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void string_token(const char *input, char *command, char *arguments)
+void stringToken(const char *input, char *command, char *arguments)
 {
     int i = 0;
     int j = 0;

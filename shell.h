@@ -86,8 +86,8 @@ void _print(char *format);
 void _read(char *command, size_t size);
 void shell_loop(shell_dat *dat);
 void handle_interruption(int sigint);
-char *read_line(void);
-void string_token(const char *input, char *command, char *arguments);
+char *readLine(void);
+void stringToken(const char *input, char *command, char *arguments);
 
 int handle_error(shell_dat *data, int err);
 void freedat(shell_dat *dat);
