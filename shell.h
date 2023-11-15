@@ -56,6 +56,30 @@ typedef struct builtins
 	char *command;
 	int (*call)(shell_dat *datash);
 } builtin_li;
+/**
+ * struct separators - list
+ * @separator: & ; |
+ * @next: next node pointer
+ * Description: a list to store separators
+ */
+typedef struct separators
+{
+	char separator;
+	struct separators *next;
+} sep;
+
+/**
+ * struct lines - list of line
+ * @line: command line
+ * @next: next node pointer
+ * Description: a list to store command lines
+ */
+typedef struct lines
+{
+	char *line;
+	struct lines *next;
+} line_li;
+
 
 /******PROTOTYPES******/
 void show_prompt(void);
@@ -78,23 +102,36 @@ char *cmd_not_found_error(shell_dat *dat);
 char *env_error(shell_dat *dat);
 char *error_126(shell_dat *dat);
 
-int _exit_shell(shell_dat *dat);
+int _exit(shell_dat *dat);
 int (*set_builtin(char *input))(shell_dat *);
 int print_env(shell_dat *dat);
-char *_getenv(const char *name, char **_environ);
-int cmp_env_name(const char *nenv, const char *name);
+char *get_env(const char *name, char **envir);
+int env_namecmp(const char *env_name, const char *name);
 
 int exec_line(shell_dat *dat);
 
-int _atoi(char *s);
-char *aux_itoa(int n);
-int _isdigit(const char *s);
+int conv_atoi(char *s);
+char *conv_itoa(int num);
+int is_digit(const char *str);
 int get_len(int n);
 
-int cmd_exec(shell_dat *datash);
-int check_error_cmd(char *dir, shell_dat *datash);
-int is_executable(shell_dat *datash);
-char *_which(char *cmd, char **_environ);
-int is_cdir(char *path, int *i);
+int inp_exec(shell_dat *dat);
+int check_err_inp(char *dir, shell_dat *dat);
+int is_exec(shell_dat *dat);
+char *_which(char *inp, char **_environ);
+int in_cdir(char *p, int *i);
+
+char **split(char *command);
+int split_commands(shell_dat *dat, char *command);
+void go_to_next(sep **list_s, line_li **list_l, shell_dat *dat);
+void addnew(sep **start_s, line_li **start_l, char *command);
+char *swapch(char *command, int bool);
+
+char **_reallocdp(char **ptr, unsigned int size_o, unsigned int size_new);
+
+sep *add_node_end_sept(sep **start, char sepr);
+void sep_free(sep **start);
+line_li *add_node_end_ln(line_li **start, char *line);
+void line_free(line_li **start);
 
 #endif
