@@ -13,7 +13,7 @@ int is_digit(const char *str)
 	{
 		if (str[i] < 48 || str[i] > 57)
 			return (0);
-        i++;
+		i++;
 	}
 	return (1);
 }
@@ -45,20 +45,19 @@ char *conv_itoa(int num)
 	}
 
 	len--;
-	do {
+	do
+	{
 		*(buffer + len) = (no % 10) + '0';
 		no = no / 10;
 		len--;
-	}
-	while (no > 0)
-		;
+	} while (no > 0);
 	return (buffer);
 }
 
 /**
  * conv_atoi - converts string to an integer
  * @s: input string.
- * 
+ *
  * Return: integer.
  */
 int conv_atoi(char *s)
@@ -92,7 +91,7 @@ int conv_atoi(char *s)
 /**
  * dig_len - len of a number
  * @n: number.
- * 
+ *
  * Return: len of a number
  */
 int dig_len(int n)

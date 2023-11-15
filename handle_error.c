@@ -2,7 +2,7 @@
 
 /**
  * handle_error - handles error and call error functions
- * @data: data structure 
+ * @data: data structure
  * @err: error value
  * Return: err value
  */
@@ -13,7 +13,7 @@ int handle_error(shell_dat *data, int err)
 	switch (err)
 	{
 	case 2:
-        if (strcmp("exit", data->args[0]) == 0)
+		if (strcmp("exit", data->args[0]) == 0)
 			err_message = exit_error(data);
 		else if (strcmp("cd", data->args[0]) == 0)
 			err_message = error_get_cd(data);
@@ -38,4 +38,3 @@ int handle_error(shell_dat *data, int err)
 	data->status = err;
 	return (err);
 }
-

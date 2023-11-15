@@ -3,7 +3,7 @@
 /**
  * print_env - prints the evironment variables
  * @dat: data structure
- * 
+ *
  * Return: 1 on success.
  */
 int print_env(shell_dat *dat)
@@ -12,13 +12,13 @@ int print_env(shell_dat *dat)
 
 	while (dat->envir[i])
 	{
-        j = 0;
+		j = 0;
 		while (dat->envir[i][j])
 			j++;
 
 		write(STDOUT_FILENO, dat->envir[i], j);
 		write(STDOUT_FILENO, "\n", 1);
-        i++;
+		i++;
 	}
 	dat->status = 0;
 
@@ -49,7 +49,7 @@ int env_namecmp(const char *env_name, const char *name)
 
 /**
  * get_env - get an environment variable
- * 
+ *
  * @name: name of the environment variable
  * @envir: environment variable
  *
