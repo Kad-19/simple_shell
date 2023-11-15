@@ -1,5 +1,10 @@
 #include "shell.h"
-
+/**
+ * main - entry point
+ * @av: arguments passed to the program
+ * @ac: the length of the arguments passed to the program
+ * Return: status
+ */
 int main(int ac, char **av)
 {
 	shell_dat data;

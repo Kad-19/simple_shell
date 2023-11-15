@@ -193,8 +193,7 @@ int inp_exec(shell_dat *dat)
 	}
 	else
 	{
-		do
-		{
+		do {
 			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}

@@ -72,8 +72,7 @@ void addnew(sep **start_s, line_li **start_l, char *command)
 	}
 
 	line = strtok(command, ";|&");
-	do
-	{
+	do {
 		line = swapch(line, 1);
 		add_node_end_ln(start_l, line);
 		line = strtok(NULL, ";|&");

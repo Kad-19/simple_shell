@@ -45,8 +45,7 @@ char *conv_itoa(int num)
 	}
 
 	len--;
-	do
-	{
+	do {
 		*(buffer + len) = (no % 10) + '0';
 		no = no / 10;
 		len--;
