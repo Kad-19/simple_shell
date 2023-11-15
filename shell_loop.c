@@ -14,7 +14,6 @@ void shell_loop(shell_dat *dat)
 	{
 		write(STDIN_FILENO, "shell$ ", 7);
 		comnd = read_cmd(&eof_j);
-		comnd = remove_comment(comnd);
 		if (eof_j != -1)
 		{
 			if (comnd == NULL)
