@@ -1,27 +1,31 @@
 #include "shell.h"
-
-void shell_loop(void)
+/**
+ * shell_loop - Loop of shell
+ * 
+ * @dat: data struncture
+ */
+void shell_loop(shell_dat *dat)
 {
-	char *command = NULL;
-	size_t command_size = 0;
-	char *empty = "\n";
+	char *comnd;
+	int eof_j, lp_i;
 
-	while(true)
+	lp_i = 1;
+	while (lp_i == 1)
 	{
-		command = NULL;
-		show_prompt();
-		getline(&command, &command_size, stdin);
-		if (feof(stdin))
-                {
-                        printf("\n");
-                        break;
-                }
-                if (!strcmp(command, empty))
-			continue;
-        
-                if (command == NULL)
-			continue;
-
-		execute(command);
+		write(STDIN_FILENO, "^-^ ", 4);
+		comnd = read_cmd(&eof_j);
+		if (eof_j != -1)
+		{
+			if (comnd == NULL)
+				continue;
+			lp_i = split_commands(dat, comnd);
+			dat->counter += 1;
+			free(comnd);
+		}
+		else
+		{
+			lp_i = 0;
+			free(comnd);
+		}
 	}
 }

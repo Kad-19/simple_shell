@@ -1,8 +1,13 @@
 #include "shell.h"
 
-int main(void)
+int main(int ac, char **av)
 {
+	shell_dat data;
+	(void) ac;
+
 	signal(SIGINT, handle_interruption);
-	shell_loop();
-	return (0);
+	setdat(&data, av);
+	shell_loop(&data);
+	freedat(&data);
+	return (data.status);
 }
