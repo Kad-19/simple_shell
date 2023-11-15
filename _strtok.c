@@ -1,19 +1,20 @@
 #include "shell.h"
+
 /**
- * stringToken - a function that splits string to tokens
+ * stringToken - A function that splits a string into tokens.
  * @input: The input string to be tokenized.
  * @command: Pointer to a character array to store the command token.
  * @arguments: Pointer to a character array to store the arguments token.
- * 
- * This function takes an input string and splits it into tokens, separating the command and arguments.
- * 
- * Return: error message
+ *
+ * This function splits an input string into tokens, separating the command and arguments
+ *
+ * Return: None.
  */
 void stringToken(const char *input, char *command, char *arguments)
 {
     int i = 0;
     int j = 0;
-    
+
     while (input[i] != ' ' && input[i] != '\0')
     {
         command[j] = input[i];
