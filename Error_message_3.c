@@ -11,7 +11,7 @@ char *error_get_cd(shell_dat *dat)
 	char *str, *msg, *error;
 	int len, size;
 
-	str = aux_itoa(dat->counter);
+	str = conv_itoa(dat->counter);
 	if (dat->args[1][0] == '-')
 	{
 		msg = ": Illegal option ";

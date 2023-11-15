@@ -14,8 +14,8 @@ int _exit_shell(shell_dat *dat)
 	if (dat->args[1] != NULL)
 	{
 		len = strlen(dat->args[1]);
-		_st = _atoi(dat->args[1]);
-		num = _isdigit(dat->args[1]);
+		_st = conv_atoi(dat->args[1]);
+		num = is_digit(dat->args[1]);
 		bignum = _st > (unsigned int)INT_MAX;
 		if (!num || len > 10 || bignum)
 		{

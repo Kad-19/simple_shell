@@ -10,7 +10,7 @@ char *error_126(shell_dat *dat)
 	int size;
 	char *str;
 
-	str = aux_itoa(dat->counter);
+	str = conv_itoa(dat->counter);
 	size = strlen(str) + strlen(dat->av[0]);
 	size += strlen(dat->args[0]) + 24;
 	error = malloc(sizeof(char) * (size + 1));
@@ -43,7 +43,7 @@ char *env_error(shell_dat *dat)
 	char *msg;
 	char *error;
 
-	str = aux_itoa(dat->counter);
+	str = conv_itoa(dat->counter);
 	msg = ": Unable to add/remove from environment\n";
 	size = strlen(str) + strlen(dat->av[0]);
 	size += strlen(msg) + strlen(dat->args[0]) + 4;

@@ -11,7 +11,7 @@ char *exit_error(shell_dat *dat)
 	int size;
 	char *error;
 
-	str = aux_itoa(dat->counter);
+	str = conv_itoa(dat->counter);
 	size = strlen(str) + strlen(dat->av[0]);
 	size += strlen(dat->args[1]) + strlen(dat->args[0]) + 23;
 	error = malloc(sizeof(char) * (size + 1));
@@ -45,7 +45,7 @@ char *cmd_not_found_error(shell_dat *dat)
 	int size;
 	char *error;
 
-	str = aux_itoa(dat->counter);
+	str = conv_itoa(dat->counter);
 	size = strlen(str) + strlen(dat->av[0]) ;
 	size += strlen(dat->args[0]) + 16;
 	error = malloc(sizeof(char) * (size + 1));

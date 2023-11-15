@@ -86,7 +86,7 @@ void show_prompt(void);
 void execute(const char *command);
 void _print(char *format);
 void _read(char *command, size_t size);
-void shell_loop(shell_dat dat);
+void shell_loop(shell_dat *dat);
 void handle_interruption(int sigint);
 char *read_line(void);
 void string_token(const char *input, char *command, char *arguments);
@@ -102,7 +102,7 @@ char *cmd_not_found_error(shell_dat *dat);
 char *env_error(shell_dat *dat);
 char *error_126(shell_dat *dat);
 
-int _exit(shell_dat *dat);
+int _exit_shell(shell_dat *dat);
 int (*set_builtin(char *input))(shell_dat *);
 int print_env(shell_dat *dat);
 char *get_env(const char *name, char **envir);
@@ -125,7 +125,7 @@ char **split(char *command);
 int split_commands(shell_dat *dat, char *command);
 void go_to_next(sep **list_s, line_li **list_l, shell_dat *dat);
 void addnew(sep **start_s, line_li **start_l, char *command);
-char *swapch(char *command, int bool);
+char *swapch(char *command, int bl);
 
 char **_reallocdp(char **ptr, unsigned int size_o, unsigned int size_new);
 
@@ -133,5 +133,7 @@ sep *add_node_end_sept(sep **start, char sepr);
 void sep_free(sep **start);
 line_li *add_node_end_ln(line_li **start, char *line);
 void line_free(line_li **start);
+
+char *read_cmd(int *eof_j);
 
 #endif

@@ -3,15 +3,15 @@
 /**
  * swapch - swaps &, |
  * @command: command string
- * @bool: type of swap
+ * @bl: type of swap
  * 
  * Return: string
  */
-char *swapch(char *command, int bool)
+char *swapch(char *command, int bl)
 {
 	int i;
 
-	if (bool == 0)
+	if (bl == 0)
 	{
 		i = 0;
 		while (command[i])
@@ -59,6 +59,7 @@ void addnew(sep **start_s, line_li **start_l, char *command)
 	int i;
 
 	command = swapch(command, 0);
+	for (i = 0; command[i]; i++)
 	{
 		if (command[i] == ';')
 			add_node_end_sept(start_s, command[i]);
@@ -154,8 +155,8 @@ int split_commands(shell_dat *dat, char *command)
 			list_l = list_l->next;
 	}
 
-	free_sep_list(&start_s);
-	free_line_list(&start_l);
+	sep_free(&start_s);
+	line_free(&start_l);
 
 	if (loop == 0)
 		return (0);
@@ -172,17 +173,17 @@ char **split(char *command)
 {
 	char *token;
 	char **toks;
-	size_t size;
+	size_t size, i;
 
 	size = 128;
 	toks = malloc(sizeof(char *) * (size));
 	if (toks == NULL)
 		exit(EXIT_FAILURE);
 
-	token = _strtok(command, " \t\r\n\a");
+	token = strtok(command, " \t\r\n\a");
 	toks[0] = token;
 
-	for (size_t i = 1; token != NULL; i++)
+	for (i = 1; token != NULL; i++)
 	{
 		if (i == size)
 		{
@@ -191,7 +192,7 @@ char **split(char *command)
 			if (toks == NULL)
 				exit(EXIT_FAILURE);
 		}
-		token = _strtok(NULL, " \t\r\n\a");
+		token = strtok(NULL, " \t\r\n\a");
 		toks[i] = token;
 	}
 

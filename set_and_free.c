@@ -27,7 +27,7 @@ void setdat(shell_dat *dat, char **av)
 	}
 
 	dat->envir[i] = NULL;
-	dat->pid = aux_itoa(getpid());
+	dat->pid = conv_itoa(getpid());
 }
 /**
  * freedat - frees data structure
