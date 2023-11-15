@@ -134,4 +134,10 @@ void line_free(line_li **start);
 
 char *read_cmd(int *eof_j);
 
+char *copy_dat(char *name, char *value);
+void set_env_val(char *name, char *value, shell_dat *dat);
+int _setenv_cmp(shell_dat *dat);
+int _unsetenv(shell_dat *dat);
+char *remove_comment(char *in);
+void *_realloc(void *ptr, unsigned int size_o, unsigned int size_new);
 #endif
