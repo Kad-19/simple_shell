@@ -1,86 +1,88 @@
 #include "shell.h"
 /**
- * _isdigit - defines if string passed is a number
+ * is_digit - defines if string passed is a number
  *
- * @s: input string
- * Return: 1 if string is a number. 0 in other case.
+ * @str: string
+ * Return: 1 if string is a number, 0 otherwise
  */
-int _isdigit(const char *s)
+int is_digit(const char *str)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
-	for (i = 0; s[i]; i++)
+	while (str[i])
 	{
-		if (s[i] < 48 || s[i] > 57)
+		if (str[i] < 48 || str[i] > 57)
 			return (0);
+        i++;
 	}
 	return (1);
 }
 /**
- * aux_itoa - function converts int to string.
- * @n: type int number
+ * conv_itoa - converts int to string
+ * @num: type int number
  * Return: String.
  */
-char *aux_itoa(int n)
+char *conv_itoa(int num)
 {
-	unsigned int n1;
-	int lenght = get_len(n);
 	char *buffer;
+	unsigned int no;
+	int len = dig_len(num);
 
-	buffer = malloc(sizeof(char) * (lenght + 1));
+	buffer = malloc(sizeof(char) * (len + 1));
 	if (buffer == 0)
 		return (NULL);
 
-	*(buffer + lenght) = '\0';
+	*(buffer + len) = '\0';
 
-	if (n < 0)
+	if (num < 0)
 	{
-		n1 = n * -1;
+		no = num * -1;
 		buffer[0] = '-';
 	}
 	else
 	{
-		n1 = n;
+		no = num;
 	}
 
-	lenght--;
+	len--;
 	do {
-		*(buffer + lenght) = (n1 % 10) + '0';
-		n1 = n1 / 10;
-		lenght--;
+		*(buffer + len) = (no % 10) + '0';
+		no = no / 10;
+		len--;
 	}
-	while (n1 > 0)
+	while (no > 0)
 		;
 	return (buffer);
 }
 
 /**
- * _atoi - converts a string to an integer.
+ * conv_atoi - converts string to an integer
  * @s: input string.
+ * 
  * Return: integer.
  */
-int _atoi(char *s)
+int conv_atoi(char *s)
 {
-	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
+	unsigned int num = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	while (*(s + count) != '\0')
+	while (*(s + num) != '\0')
 	{
-		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
+		if (size > 0 && (*(s + num) < '0' || *(s + num) > '9'))
 			break;
 
-		if (*(s + count) == '-')
+		if (*(s + num) == '-')
 			pn *= -1;
 
-		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
+		if ((*(s + num) >= '0') && (*(s + num) <= '9'))
 		{
 			if (size > 0)
 				m *= 10;
 			size++;
 		}
-		count++;
+		num++;
 	}
 
-	for (i = count - size; i < count; i++)
+	for (i = num - size; i < num; i++)
 	{
 		oi = oi + ((*(s + i) - 48) * m);
 		m /= 10;
@@ -88,29 +90,30 @@ int _atoi(char *s)
 	return (oi * pn);
 }
 /**
- * get_len - Get the lenght of a number.
- * @n: type int number.
- * Return: Lenght of a number.
+ * dig_len - len of a number
+ * @n: number.
+ * 
+ * Return: len of a number
  */
-int get_len(int n)
+int dig_len(int n)
 {
-	unsigned int n1;
-	int lenght = 1;
+	unsigned int no;
+	int len = 1;
 
 	if (n < 0)
 	{
-		lenght++;
-		n1 = n * -1;
+		len++;
+		no = n * -1;
 	}
 	else
 	{
-		n1 = n;
+		no = n;
 	}
-	while (n1 > 9)
+	while (no > 9)
 	{
-		lenght++;
-		n1 = n1 / 10;
+		len++;
+		no = no / 10;
 	}
 
-	return (lenght);
+	return (len);
 }
