@@ -31,7 +31,6 @@ void execute(const char *command)
 		wait(&status);
 	}
 }
-#include "shell.h"
 
 /**
  * exec_line - finds builtins and commands
@@ -49,5 +48,5 @@ int exec_line(shell_dat *dat)
 
 	if (b != NULL)
 		return (b(dat));
-	return (cmd_exec(dat));
+	return (inp_exec(dat));
 }
