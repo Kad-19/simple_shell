@@ -1,7 +1,17 @@
 #include "shell.h"
 /**
- * readLine - reads command line from terminal
- * Return: the line it readed
+ * readLine - Reads a line of input from the standard input.
+ *
+ * This function reads a line of input from the standard input,
+ * character by character,
+ * until it encounters a newline character ('\n') or
+ * reaches the end of the input.
+ * It dynamically allocates memory to store the input line
+ * and expands the memory as needed.
+ *
+ * Return: A pointer to dynamically allocated string containing
+ *         the input line, or NULL if an error occurs.
+ *
  */
 char *readLine(void)
 {
