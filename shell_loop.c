@@ -12,7 +12,7 @@ void shell_loop(shell_dat *dat)
 	lp_i = 1;
 	while (lp_i == 1)
 	{
-		write(STDIN_FILENO, "^-^ ", 4);
+		write(STDIN_FILENO, "shell$ ", 7);
 		comnd = read_cmd(&eof_j);
 		if (eof_j != -1)
 		{

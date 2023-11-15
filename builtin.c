@@ -12,6 +12,8 @@ int (*set_builtin(char *input))(shell_dat *)
 	builtin_li b[] = {
 		{"env", print_env},
 		{"exit", _exit_shell},
+		{ "setenv", _setenv_cmp },
+		{ "unsetenv", _unsetenv },
 		{NULL, NULL}};
 
 	while (b[i].command)
