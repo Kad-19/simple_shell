@@ -6,7 +6,8 @@
  * @command: Pointer to a character array to store the command token.
  * @arguments: Pointer to a character array to store the arguments token.
  *
- * This function splits an input string into tokens, separating the command and arguments
+ * This function splits an input string into tokens,
+ * separating the command and arguments.
  *
  * Return: None.
  */

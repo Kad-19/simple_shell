@@ -10,8 +10,8 @@
  * It dynamically allocates memory to store the input line
  * and expands the memory as needed.
  *
- * Return: A pointer to a dynamically allocated string containing the input line,
- *         or NULL if there is no more input or an error occurs.
+ * Return: A pointer to dynamically allocated string containing
+ *         the input line, or NULL if an error occurs.
  *
  */
 char *readLine(void)
