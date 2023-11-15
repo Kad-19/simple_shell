@@ -113,7 +113,7 @@ int exec_line(shell_dat *dat);
 int conv_atoi(char *s);
 char *conv_itoa(int num);
 int is_digit(const char *str);
-int get_len(int n);
+int dig_len(int n);
 
 int inp_exec(shell_dat *dat);
 int check_err_inp(char *dir, shell_dat *dat);

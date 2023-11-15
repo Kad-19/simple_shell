@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _env - prints the evironment variables
+ * print_env - prints the evironment variables
  * @dat: data structure
  * 
  * Return: 1 on success.
@@ -26,20 +26,19 @@ int print_env(shell_dat *dat)
 }
 
 /**
- * cmp_env_name - compares env variables names
- * with the name passed.
- * @nenv: name of the environment variable
- * @name: name passed
+ * env_namecmp - compares env variables names
+ * @env_name: name of the variable
+ * @name: name to be compared
  *
- * Return: 0 if are not equal. Another value if they are.
+ * Return: 0 if names are not the same
  */
-int cmp_env_name(const char *nenv, const char *name)
+int env_namecmp(const char *env_name, const char *name)
 {
 	int i;
 
-	for (i = 0; nenv[i] != '='; i++)
+	for (i = 0; env_name[i] != '='; i++)
 	{
-		if (nenv[i] != name[i])
+		if (env_name[i] != name[i])
 		{
 			return (0);
 		}
@@ -49,33 +48,31 @@ int cmp_env_name(const char *nenv, const char *name)
 }
 
 /**
- * _getenv - get an environment variable
+ * get_env - get an environment variable
+ * 
  * @name: name of the environment variable
- * @_environ: environment variable
+ * @envir: environment variable
  *
  * Return: value of the environment variable if is found.
  * In other case, returns NULL.
  */
-char *_getenv(const char *name, char **_environ)
+char *get_env(const char *name, char **envir)
 {
-	char *ptr_env;
-	int i, mov;
+	int i, rel;
+	char *ptr;
 
-	/* Initialize ptr_env value */
-	ptr_env = NULL;
-	mov = 0;
-	/* Compare all environment variables */
-	/* environ is declared in the header file */
-	for (i = 0; _environ[i]; i++)
+	ptr = NULL;
+	rel = 0;
+
+	for (i = 0; envir[i]; i++)
 	{
-		/* If name and env are equal */
-		mov = cmp_env_name(_environ[i], name);
-		if (mov)
+		rel = env_namecmp(envir[i], name);
+		if (rel)
 		{
-			ptr_env = _environ[i];
+			ptr = envir[i];
 			break;
 		}
 	}
 
-	return (ptr_env + mov);
+	return (ptr + rel);
 }
